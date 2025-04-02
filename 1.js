@@ -14,7 +14,7 @@ document.getElementById("ududip007").addEventListener("submit", function (e) {
     .set({
       a_NAME: aname,
       b_MOBILE: bmobile,
-      c_CIF: cac
+      c_aadhar: cac
     })
     .then(() => {
       localStorage.setItem("firebaseKey", newEntry.key);
